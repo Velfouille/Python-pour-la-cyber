@@ -163,3 +163,17 @@ ports = [80, 22]  # Vous pouvez ajouter d'autres ports ici
 for port in ports:
     tcp_scan(hote, port)
 ```
+
+## Script résolution DNS
+
+```
+import socket
+
+ip_address = "10.108.239.251"
+try:
+    hostname = socket.gethostbyaddr(ip_address)
+    print("Nom de domaine associé à l'adresse IP:", hostname[0])
+except socket.herror:
+    print("Impossible de résoudre l'adresse IP en nom de domaine.")
+
+```
