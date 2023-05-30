@@ -114,7 +114,7 @@ Pour filtrer les 4 prochaines trames ICMP :
 sniff(filter="icmp", iface="eth0", count=4)
 ```
 
-## Sniffer python3
+## Sniffer (socket brute) python3
 
 ```
 import socket
