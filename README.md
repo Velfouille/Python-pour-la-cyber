@@ -1,7 +1,7 @@
 # Python-pour-la-cyber
 
 ## Côté client : 
-
+```
 import socket
 import sys
 
@@ -32,10 +32,10 @@ data = tcp_socket.recv(BUFFER_SIZE)
 tcp_socket.close()
 
 print ("Réponse du serveur :", data)
-
+```
 
 ## Côté serveur (se ferme une fois la réponse obtenue)
-
+```
 import socket
 import sys
 
@@ -68,9 +68,9 @@ reponse_serveur = 'Merci pour la connexion'
 connexion.sendall(reponse_serveur.encode('utf8'))
 
 connexion.close()
-
+```
 ## Pour maintenir le serveur en écoute (reste en écoute, même après réception du message
-
+```
 import socket
 import sys
 
@@ -100,3 +100,4 @@ while True :
 	connexion.sendall(reponse_serveur.encode('utf8'))
 
 connexion.close()
+```
