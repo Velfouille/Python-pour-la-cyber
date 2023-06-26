@@ -177,3 +177,33 @@ except socket.herror:
     print("Impossible de résoudre l'adresse IP en nom de domaine.")
 
 ```
+
+
+```
+import socket
+
+def get_ips_par_recherche_dns(cible, port=None):
+    try:
+        ip_addresses = socket.gethostbyname_ex(cible)[2]
+        return ip_addresses
+    except socket.gaierror:
+        return []
+
+# Exemple d'utilisation de la fonction
+cible = 'iut-acy.local'
+port = 443
+liste_ip = []
+
+adresses_ip = get_ips_par_recherche_dns(cible, port)
+if adresses_ip:
+    liste_ip.extend(adresses_ip)
+    #print(f"Adresses IP pour la cible {cible}:")
+    #for ip in adresses_ip:
+        #print(ip)
+        
+else:
+    print(f"Impossible de trouver des adresses IP pour la cible {cible}")
+    
+print(liste_ip)
+
+```
