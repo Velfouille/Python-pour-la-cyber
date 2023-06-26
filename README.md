@@ -178,7 +178,7 @@ except socket.herror:
 
 ```
 
-##Lister les IP d'un nom de domaine
+## Lister les IP d'un nom de domaine
 ```
 import socket
 
