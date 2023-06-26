@@ -207,3 +207,31 @@ else:
 print(liste_ip)
 
 ```
+
+## Trouver les types d'enregistrement du domaine iut-acy.local
+```
+import dns.resolver
+
+def resolve_dns_records(target):
+    record_types = ["A", "AAAA", "CNAME", "MX", "NS", "SOA", "TXT"]
+    results = {}
+
+    for record_type in record_types:
+        try:
+            answers = dns.resolver.resolve(target, record_type)
+            results[record_type] = [str(rdata) for rdata in answers]
+        except dns.resolver.NoAnswer:
+            results[record_type] = []
+
+    return results
+
+target = "iut-acy.local"
+results = resolve_dns_records(target)
+
+for record_type, records in results.items():
+    if len(records) > 0:
+        print(f"{record_type} enregistrements pour {target}:")
+        for record in records:
+            print(record)
+        print()
+```
