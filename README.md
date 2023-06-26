@@ -276,5 +276,7 @@ for pqt in capture:
 	n = n+1
 	
 print(dico_Layer_TCP[2])
+
+#ça selectionne le 3ème LAYER ( [2] )
 ```
 
