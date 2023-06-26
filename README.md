@@ -235,3 +235,32 @@ for record_type, records in results.items():
             print(record)
         print()
 ```
+
+
+## Analyser IP dest + IP source + port source + flag TCP
+```
+from scapy.all import *
+
+def analyse_pcap(pcap_file):
+    packets = rdpcap(pcap_file)
+    for packet in packets:
+        if IP in packet and TCP in packet:
+            ip_src = packet[IP].src
+            ip_dst = packet[IP].dst
+            tcp_flags = packet[TCP].flags
+            tcp_src_port = packet[TCP].sport
+
+            print("Adresse IP Source:", ip_src)
+            print("Adresse IP Destination:", ip_dst)
+            print("Flag TCP:", tcp_flags)
+            print("Port Source:", tcp_src_port)
+            print()
+
+# Exemple d'utilisation
+pcap_file = 'capture_meta_1.pcap'
+analyse_pcap(pcap_file)
+```
+
+
+
+
