@@ -261,6 +261,20 @@ pcap_file = 'capture_meta_1.pcap'
 analyse_pcap(pcap_file)
 ```
 
+## Afficher tout un Layer
+```
+import pyshark
+
+capture = pyshark.FileCapture('trame_echo_1.pcap')
 
 
+dico_Layer_TCP = {}
+n = 0
+
+for pqt in capture:
+	dico_Layer_TCP[n] = pqt['TCP']
+	n = n+1
+	
+print(dico_Layer_TCP[2])
+```
 
